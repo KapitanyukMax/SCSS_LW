@@ -2,12 +2,11 @@ $indent: 4vw;
 $indentV: 1vh;
 
 $bgDark: #792879;
-$fontDark: #792879;
+$fontDark: #ad36ad;
 $bgLight: lighten($bgDark, 60%);
 $fontLight: #eee;
 
 $font: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-
 @mixin reset() {
     margin: 0;
     padding: 0;
@@ -24,7 +23,7 @@ $font: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: $fontDark;
 }
 
-@mixin flex($dir, $side) {
+@mixin flex($dir: row, $side) {
     display: flex;
     flex-direction: $dir;
     justify-content: $side;
@@ -89,79 +88,61 @@ header {
 }
 
 .home {
-    @include colorLight;
-    padding: 0 $indent;
+    @include flex(column, center);
+    height: 80vh;
+    padding: $indent;
+    background-image: url(images/background.jpg);
+    background-size: cover;
+    background-position: center center;
 
-    h2 {
+    div {
+        width: 70%;
+        margin: 0 auto;
         text-align: center;
-    }
+        color: $fontLight;
+        text-shadow: 1px -1px 3px $fontDark;
+        position: relative;
+        z-index: 10;
+        font-size: 1.5rem;
 
-    .flex {
-        @include flex(row, start);
+        h1 {
+            text-transform: uppercase;
+        }
 
-        div {
-            margin-right: 50px;
+        button {
+            background: none;
+            @include border($fontLight, 20%);
+            @include colorDark;
+            padding: $indentV * 2 $indentV * 3;
+            text-transform: uppercase;
+            font-family: $font;
 
-            img {
-                width: 100%;
-            }
-
-            h4 {
-                margin: 20px 0;
-                font-size: 16pt;
-            }
-
-            ol {
-                padding: 0;
-                list-style-position: inside;
-
-                li {
-                    margin: 10px 0;
-                }
+            &:focus {
+                outline: transparent;
+                box-shadow: 1px -1px 3px $fontDark;
             }
         }
     }
 }
 
-footer {
-    @include colorDark;
-    padding: $indentV * 5;
+.services {
+    padding: $indentV $indent;
+    @include colorLight();
 
     h2 {
-        margin-top: 0;
         text-align: center;
     }
 
-    .flex {
-        @include flex(row, space-around);
-        gap: 20px;
+    >div {
+        @include flex(row, space-between);
+        gap: $indent;
 
-        div {
-            @include border($fontLight, 20%);
-            @include flex(column, center);
-            align-items: center;
-            padding: $indentV * 3 0;
-            overflow: auto;
-
-            .img-wrapper {
-                width: 30%;
-                @include reset;
-                border: none;
-
-                img {
-                    width: 100%;
-                }
-            }
-
-            h3 {
-                margin: 5% 0 0;
-                font-size: 20pt;
-            }
-
-            p {
-                @include reset;
-                font-style: italic;
-            }
+        ol {
+            padding-left: 0;
+            list-style-position: inside;
+        }
+        img {
+            width: 100%;
         }
     }
 }
