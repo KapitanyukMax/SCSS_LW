@@ -123,12 +123,17 @@ header {
             }
 
             h4 {
-                font-size: larger;
+                margin: 20px 0;
+                font-size: 16pt;
             }
 
             ol {
                 padding: 0;
                 list-style-position: inside;
+
+                li {
+                    margin: 10px 0;
+                }
             }
         }
     }

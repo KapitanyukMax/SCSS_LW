@@ -75,11 +75,15 @@ header nav ul li a:hover, header nav ul li a.active {
   width: 100%;
 }
 .home .flex div h4 {
-  font-size: larger;
+  margin: 20px 0;
+  font-size: 16pt;
 }
 .home .flex div ol {
   padding: 0;
   list-style-position: inside;
+}
+.home .flex div ol li {
+  margin: 10px 0;
 }
 
 footer {
